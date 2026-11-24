@@ -20,6 +20,11 @@
   var app = document.getElementById("app");
 
   // ------------------------------------------------------------ helpers
+  // SV diamond mark (same geometry and colors as the SV design system's Logo).
+  var DIAMOND =
+    '<svg class="mark" viewBox="0 0 100 100" role="img" aria-label="Service Ventures">' +
+    '<polygon points="50,2 50,50 2,50" fill="#77a7f7"/><polygon points="50,2 98,50 50,50" fill="#080b35"/>' +
+    '<polygon points="2,50 50,50 50,98" fill="#080b35"/><polygon points="50,50 98,50 50,98" fill="#333790"/></svg>';
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -381,7 +386,7 @@
     render(
       '<section class="certwrap"><div class="noprint nav"><a class="btn" href="#/c/' + c.id + '">&larr; Overview</a>' +
       '<button class="btn primary" onclick="window.print()">Print or save as PDF</button></div>' +
-      '<div class="cert"><p class="small">Certificate of completion</p>' +
+      '<div class="cert">' + DIAMOND + '<p class="small">Certificate of completion</p>' +
       "<h1>" + esc(st.learner.name) + "</h1>" +
       (st.learner.cu ? '<p class="cu">' + esc(st.learner.cu) + "</p>" : "") +
       "<p>completed</p><h2>" + esc(c.title) + "</h2>" +
